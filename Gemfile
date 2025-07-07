@@ -41,6 +41,7 @@ gem "thruster", require: false
 # gem "image_processing", "~> 1.2"
 
 gem "css-zero", "~> 1.1"
+gem "rails_icons", "~> 1.3"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -62,8 +63,8 @@ group :development do
   gem "web-console"
 
   gem "guard-rspec", "~> 4.7", require: false
+  gem "hotwire-livereload", "~> 2.0"
   gem "meta_request", "~> 0.8.5"
 end
 
-
-
+gem "database_cleaner-active_record", "~> 2.2", group: :test
