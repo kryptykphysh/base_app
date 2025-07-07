@@ -9,3 +9,11 @@ services:
       - "3000:3000"
     volumes:
       - .:/rails
+  guard:
+    build:
+      context: .
+      dockerfile: Dockerfile-dev
+    command: bundle exec guard -i
+    image: base-app
+    volumes:
+      - .:/rails
