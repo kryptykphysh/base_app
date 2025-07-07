@@ -1,0 +1,7 @@
+<%= render @chat_room %>
+
+<div class="flex flex-wrap items-center gap mbs-6" style="--row-gap: .5rem">
+  <%= link_to "Edit this chat room", edit_chat_room_path(@chat_room), class: "btn" %>
+  <%= link_to "Back to chat rooms", chat_rooms_path, class: "btn" %>
+  <%= button_to "Destroy this chat room", @chat_room, method: :delete, class: "btn" %>
+</div>

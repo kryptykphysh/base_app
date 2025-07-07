@@ -1,0 +1,9 @@
+<% content_for :title, "New chat room" %>
+
+<h1 class="font-bold text-4xl mbe-4">New chat room</h1>
+
+<%= render "form", chat_room: @chat_room %>
+
+<div class="inline-flex flex-wrap items-center gap mbs-2" style="--row-gap: .5rem">
+  <%= link_to "Back to chat rooms", chat_rooms_path, class: "btn" %>
+</div>

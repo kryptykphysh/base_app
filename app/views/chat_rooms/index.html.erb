@@ -1,0 +1,10 @@
+<% content_for :title, "Chat rooms" %>
+
+<div class="flex items-center justify-between mbe-4">
+  <h1 class="font-bold text-4xl">Chat rooms</h1>
+  <%= link_to "New chat room", new_chat_room_path, class: "btn btn--primary" %>
+</div>
+
+<div id="chat_rooms" class="flex flex-row flex-wrap" style="gap: 2rem;">
+  <%= render partial: "chat_rooms/list_item", collection: @chat_rooms, as: :chat_room %>
+</div>
