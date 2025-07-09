@@ -1,14 +1,4 @@
-<div id="<%= dom_id chat_message %>" class="flex flex-col gap">
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Chat room:</h4>
-    <p class="leading-none"><%= chat_message.chat_room_id %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">User:</h4>
-    <p class="leading-none"><%= chat_message.user_id %></p>
-  </div>
-  <div class="flex flex-col gap-half">
-    <h4 class="font-medium leading-none">Content:</h4>
-    <p class="leading-none"><%= chat_message.content %></p>
-  </div>
+<div id="<%= dom_id chat_message %>" class="card flex flex-col gap prose">
+  <h6><%= chat_message.user.email_address %></h6>
+  <p><%= chat_message.content %></p>
 </div>
