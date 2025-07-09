@@ -1,5 +1,6 @@
 class ChatMessagesController < ApplicationController
   before_action :set_chat_message, only: %i[ show edit update destroy ]
+  before_action :set_chat_room, only: %i[ index create new ]
 
   # GET /chat_messages or /chat_messages.json
   def index
@@ -22,9 +23,12 @@ class ChatMessagesController < ApplicationController
   # POST /chat_messages or /chat_messages.json
   def create
     @chat_message = ChatMessage.new(chat_message_params)
+    @chat_message.user = Current.user
+    @chat_message.chat_room = @chat_room
 
     respond_to do |format|
       if @chat_message.save
+        format.turbo_stream
         format.html { redirect_to @chat_message, notice: "Chat message was successfully created." }
         format.json { render :show, status: :created, location: @chat_message }
       else
@@ -63,8 +67,12 @@ class ChatMessagesController < ApplicationController
       @chat_message = ChatMessage.find(params.expect(:id))
     end
 
+    def set_chat_room
+      @chat_room = ChatRoom.find(params.expect(:chat_room_id))
+    end
+
     # Only allow a list of trusted parameters through.
     def chat_message_params
-      params.expect(chat_message: [ :chat_room_id, :user_id, :content ])
+      params.expect(chat_message: [ :chat_room_id, :content ])
     end
 end
