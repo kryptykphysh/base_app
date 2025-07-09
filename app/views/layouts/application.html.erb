@@ -31,7 +31,10 @@
     <header id="header" class="justify-between">
       <h1 class="font-bold text-2xl">Rails</h1>
       <% if Current.user %>
-        <%= link_to "Logout", session_path, class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        <div>
+          <%= Current.user.email_address %>
+          <%= link_to "Logout", session_path, class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+        </div>
       <% end %>
     </header>
 
