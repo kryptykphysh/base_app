@@ -10,3 +10,5 @@
 <div id="chat_messages" class="flex flex-wrap flex-col gap">
   <%= render partial: "chat_messages/chat_message", collection: @chat_messages, as: :chat_message %>
 </div>
+
+<%= render partial: "chat_messages/form", locals: { chat_message: @chat_message, chat_room: @chat_room } %>

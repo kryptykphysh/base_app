@@ -1,4 +1,4 @@
-<%= form_with(model: chat_message, html: { contents: true }) do |form| %>
+<%= form_with(model: [chat_room, chat_message], html: { contents: true }) do |form| %>
   <% if chat_message.errors.any? %>
     <div class="alert alert--negative flex flex-col gap-half mbe-4" role="alert">
       <h2 class="font-medium leading-none"><%= pluralize(chat_message.errors.count, "error") %> prohibited this chat_message from being saved:</h2>
@@ -10,16 +10,6 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="flex flex-col items-start gap-half mbe-4">
-    <%= form.label :chat_room_id, class: "text-sm font-medium leading-none" %>
-    <%= form.text_field :chat_room_id, class: "input" %>
-  </div>
-
-  <div class="flex flex-col items-start gap-half mbe-4">
-    <%= form.label :user_id, class: "text-sm font-medium leading-none" %>
-    <%= form.text_field :user_id, class: "input" %>
-  </div>
 
   <div class="flex flex-col items-start gap-half mbe-4">
     <%= form.label :content, class: "text-sm font-medium leading-none" %>
