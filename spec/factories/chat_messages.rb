@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :chat_message do
-    chat_room { nil }
-    user { nil }
+    chat_room
+    user
     content { "MyText" }
   end
 end
