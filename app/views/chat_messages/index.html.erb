@@ -1,0 +1,15 @@
+<% content_for :title, "Chat messages" %>
+
+<div class="flex items-center justify-between mbe-4">
+  <h1 class="font-bold text-4xl">Chat messages</h1>
+  <%= link_to "New chat message", new_chat_message_path, class: "btn btn--primary" %>
+</div>
+
+<div id="chat_messages" class="flex flex-col" style="gap: 2rem;">
+  <% @chat_messages.each do |chat_message| %>
+    <div class="flex flex-col items-start gap">
+      <%= render chat_message %>
+      <%= link_to "Show this chat message", chat_message, class: "btn" %>
+    </div>
+  <% end %>
+</div>
