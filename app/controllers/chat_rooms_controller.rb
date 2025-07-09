@@ -8,6 +8,9 @@ class ChatRoomsController < ApplicationController
 
   # GET /chat_rooms/1 or /chat_rooms/1.json
   def show
+    @chat_messages = @chat_room.chat_messages.order(created_at: :asc).all
+    @chat_message = ChatMessage.new(chat_room: @chat_room)
+    @chat_message.user = Current.user if Current.user 
   end
 
   # GET /chat_rooms/new
