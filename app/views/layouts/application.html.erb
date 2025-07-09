@@ -28,10 +28,11 @@
   </head>
 
   <body class="header-layout">
-    <header id="header">
-      <div class="container">
-        <h1 class="font-bold text-2xl">Rails</h1>
-      </div>
+    <header id="header" class="justify-between">
+      <h1 class="font-bold text-2xl">Rails</h1>
+      <% if Current.user %>
+        <%= link_to "Logout", session_path, class: "btn btn-secondary", data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %>
+      <% end %>
     </header>
 
     <main id="main">
