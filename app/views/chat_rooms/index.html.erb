@@ -5,6 +5,7 @@
   <%= link_to "New chat room", new_chat_room_path, class: "btn btn--primary" %>
 </div>
 
+<%= turbo_stream_from :chat_rooms %>
 <div id="chat_rooms" class="flex flex-row flex-wrap" style="gap: 2rem;">
   <%= render partial: "chat_rooms/list_item", collection: @chat_rooms, as: :chat_room %>
 </div>

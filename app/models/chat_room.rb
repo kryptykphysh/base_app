@@ -3,4 +3,6 @@ class ChatRoom < ApplicationRecord
   validates :description, presence: true, length: { in: 10..500 }
 
   normalizes :title, with: -> (title) { title.strip.gsub(/\s+/, " ").downcase }
+
+  broadcasts_refreshes_to ->(chat_room) { chat_room.class.broadcast_target_default }
 end
