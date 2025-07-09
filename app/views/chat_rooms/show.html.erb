@@ -5,3 +5,7 @@
   <%= link_to "Back to chat rooms", chat_rooms_path, class: "btn" %>
   <%= button_to "Destroy this chat room", @chat_room, method: :delete, class: "btn" %>
 </div>
+
+<div id="chat_messages" class="flex flex-wrap flex-col gap">
+  <%= render partial: "chat_messages/chat_message", collection: @chat_room.chat_messages, as: :chat_message %>
+</div>
