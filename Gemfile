@@ -40,7 +40,7 @@ gem "thruster", require: false
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
-gem "css-zero", "~> 1.1"
+gem "css-zero", "~> 2.0"
 gem "rails_icons", "~> 1.3"
 
 group :development, :test do
